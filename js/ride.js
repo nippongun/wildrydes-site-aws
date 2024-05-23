@@ -4,16 +4,17 @@ var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 
 (function rideScopeWrapper($) {
+    console.log(WildRydes);
     var authToken;
     WildRydes.authToken.then(function setAuthToken(token) {
         if (token) {
             authToken = token;
         } else {
-            window.location.assign('/signin.html');
+            //window.location.assign('signin.html');
         }
     }).catch(function handleTokenError(error) {
         alert(error);
-        window.location.assign('/signin.html');
+        window.location.assign('signin.html');
     });
     function requestUnicorn(pickupLocation) {
         $.ajax({
